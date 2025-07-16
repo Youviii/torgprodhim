@@ -26,9 +26,12 @@ body, html {
 
 /* Белый текст для прозрачного фона */
 .navbar-custom .nav-link,
-.navbar-custom .navbar-brand,
 .navbar-custom .bi {
     color: var(--text-color) !important;
+}
+
+.navbar-custom .navbar-brand {
+    color: var(--background-color) !important; /* Белый цвет для логотипа */
 }
 
 /* При наведении */

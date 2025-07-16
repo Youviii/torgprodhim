@@ -7,4 +7,4 @@ make -j"$(nproc)"
 
 # Запускать из корня проекта!
 cd ..
-./build/mySite
+nohup ./build/mySite > log.txt 2>&1 &

@@ -1,105 +1,173 @@
+:root {
+  --background-color: #f5f7fa; /* Светло-серый фон */
+  --primary-color: #6c7a89;   /* Темно-синий */
+  --secondary-color: #1f3a93; /* Светло-сиреневый */
+  --accent-color: #00bcd4;    /* Оранжевый акцент */
+  --text-color: #333333;      /* Белый */
+  --footer-bg: #111111;       /* Темный фон */
+  --nav-hover: #1f3a93;       /* При наведении */
+  --some-color: #adb7b9;
+}
+
+/* Убираем отступы и поля у body и html, чтобы элементы занимали весь экран */
 body, html {
     margin: 0;
     padding: 0;
 }
 
-.hero {
-    background-image: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80'); /* локальное изображение */
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    position: relative;
-    color: white;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* затемнение */
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 4rem;
-    font-weight: bold;
-}
-
-.hero p {
-    font-size: 1.5rem;
-}
-
+/* Прозрачный фиксированный навбар */
 .navbar-custom {
-    background-color: #003366;
+    background-color: transparent !important;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
+/* Белый текст для прозрачного фона */
 .navbar-custom .nav-link,
 .navbar-custom .navbar-brand,
 .navbar-custom .bi {
-    color: white !important;
+    color: var(--text-color) !important;
 }
 
+/* При наведении */
 .navbar-custom .nav-link:hover {
-    color: #ccccff !important;
+    color: var(--nav-hover) !important;
 }
 
+/* Hero — весь экран, делится пополам */
+.hero {
+    height: 100vh;
+    margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0; /* нет отступа сверху, чтобы картинка доходила до верха */
+}
+
+/* Левая половина с фоном */
+.hero-left {
+    flex: 1;
+    min-width: 50%;
+    background-image: url("images/main_picture.jpeg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Правая половина с текстом */
+.hero-right {
+    flex: 1;
+    min-width: 50%;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    padding-top: 80px; /* Чтобы текст не залезал под navbar */
+}
+
+/* Заголовок и текст */
+.hero-right h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.hero-right p {
+    font-size: 1.5rem;
+}
+
+/* Адаптивность: на мобильных — блоки один под другим */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+    }
+
+    .hero-left, .hero-right {
+        min-width: 100%;
+        height: 50vh;
+    }
+}
+
+/* Стили футера */
 .footer {
-    background-color: #111;
-    color: #aaa;
-    padding: 20px 0;
+    background-color: #111;    /* Почти чёрный фон */
+    color: #aaa;               /* Серый текст */
+    padding: 20px 0;           /* Отступы сверху и снизу */
     text-align: center;
     font-size: 14px;
-    border-top: 1px solid #333;
+    border-top: 1px solid #333; /* Линия сверху */
     position: relative;
     bottom: 0;
     width: 100%;
 }
 
+/* Стили ссылок в футере */
 .footer a {
-    color: #888;
+    color: #888;               /* Серый цвет */
     text-decoration: none;
     margin: 0 10px;
 }
 
+/* Цвет ссылок при наведении */
 .footer a:hover {
-    color: #fff;
+    color: #fff;               /* Белый цвет при наведении */
 }
 
+/* Прелоадер — затемнение экрана с анимацией загрузки */
 #preloader {
-    position: fixed;
+    position: fixed;           /* Поверх всего */
     width: 100%;
     height: 100%;
-    background: #000;
+    background: #000;          /* Чёрный фон */
     top: 0;
     left: 0;
-    z-index: 9999;
-    display: flex;
+    z-index: 9999;             /* Очень высокий приоритет отображения */
+    display: flex;             /* Центрируем спиннер */
     align-items: center;
     justify-content: center;
 }
 
+/* Вращающийся спиннер внутри прелоадера */
 .spinner {
-    border: 5px solid #444;
-    border-top: 5px solid #fff;
+    width: 56px;
+    height: 56px;
+    display: grid;
+    color: #6c7a89;
+    background: radial-gradient(farthest-side, currentColor calc(100% - 6.7px),#0000 calc(100% - 5.6px) 0);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 14.6px),#000 calc(100% - 13.4px));
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 1s linear infinite;
+    animation: spinner-sm4bhi 2.8s infinite linear;
+
+
+    /*border: 5px solid #444;        /* Серая рамка */
+    /*border-top: 5px solid #fff;    /* Белая верхняя часть для эффекта вращения */
+    /*border-radius: 50%;            /* Круг */
+    /*width: 60px;
+    /*height: 60px;
+    /*animation: spin 1s linear infinite; /* Бесконечное вращение */
 }
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+.spinner::before,
+.spinner::after {
+   content: "";
+   grid-area: 1/1;
+   background: linear-gradient(currentColor 0 0) center,
+          linear-gradient(currentColor 0 0) center;
+   background-size: 100% 11.2px,11.2px 100%;
+   background-repeat: no-repeat;
 }
+
+.spinner::after {
+   transform: rotate(45deg);
+}
+
+@keyframes spinner-sm4bhi {
+   100% {
+      transform: rotate(1turn);
+   }
+}
+
+/* Анимация вращения */
+/*@keyframes spin {
+    to {
+        transform: rotate(360deg); /* Один полный оборот 
+    }
+}*/

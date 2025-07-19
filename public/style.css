@@ -52,7 +52,7 @@ body, html {
 .hero-left {
     flex: 1;
     min-width: 50%;
-    background-image: url("images/main_picture.jpeg");
+    background-image: url("/public/images/main_picture.jpeg");
     background-size: cover;
     background-position: center;
     position: relative;

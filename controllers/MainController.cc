@@ -7,6 +7,7 @@ public:
     METHOD_LIST_BEGIN
     ADD_METHOD_TO(MainController::index, "/", Get);  // маршрут "/"
     ADD_METHOD_TO(MainController::about, "/about", Get);  // маршрут "/about"
+    ADD_METHOD_TO(MainController::contacts, "/contacts", Get);  // маршрут "/contacts"
     METHOD_LIST_END
 
     void index(const HttpRequestPtr &req,
@@ -20,6 +21,13 @@ public:
                std::function<void(const HttpResponsePtr &)> &&callback)
     {
         auto resp = HttpResponse::newHttpViewResponse("About.csp");
+        callback(resp);
+    }
+
+    void contacts(const HttpRequestPtr &req,
+               std::function<void(const HttpResponsePtr &)> &&callback)
+    {
+        auto resp = HttpResponse::newHttpViewResponse("Contacts.csp");
         callback(resp);
     }
 };

@@ -34,6 +34,8 @@ Index_tmp_stream<<"\n";
 	Index_tmp_stream << "    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css\" rel=\"stylesheet\">\n";
 	Index_tmp_stream << "    <!-- Подключение собственного CSS-файла -->\n";
 	Index_tmp_stream << "    <link rel=\"stylesheet\" href=\"/public/style.css\">\n";
+	Index_tmp_stream << "    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/public/images/favicon.svg\">\n";
+	Index_tmp_stream << "    <link rel=\"icon\" type=\"image/png\" href=\"/public/images/favicon.png\">\n";
 	Index_tmp_stream << "</head>\n";
 	Index_tmp_stream << "<body>\n";
 Index_tmp_stream<<"\n";

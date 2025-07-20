@@ -29,7 +29,7 @@ body, html {
 /* Белый текст для прозрачного фона */
 .navbar-custom .nav-link,
 .navbar-custom .bi {
-    color: white !important;
+    color: var(--text-color) !important;
 }
 
 .navbar-custom .navbar-brand {
@@ -97,19 +97,36 @@ body, html {
     }
     .navbar-collapse {
         justify-content: center !important;
-        background: rgba(34, 34, 34, 0.85); /* Тёмный полупрозрачный фон */
+        /*background: rgba(200, 200, 200, 0.6); /* Тёмный полупрозрачный фон */
+        background: rgba(25, 25, 25, 0.6); /* Тёмный полупрозрачный фон */
         border-radius: 12px;
         padding: 16px 0;
     }
     .navbar-nav .nav-item {
-        width: 100%;                      /* Каждый пункт на всю ширину */
-        margin: 8px 0;                    /* Вертикальные отступы между пунктами */
+        width: 100%;
+        margin: 8px 0;
+        display: flex;
+        justify-content: center; /* Центрирует содержимое li */
+        align-items: center;     /* Вертикальное выравнивание */
     }
     .navbar-nav .nav-link, .navbar-nav .bi {
-        color: #fff !important;            /* Белый цвет текста и иконок */
+        color: var(--some-color) !important;            /* Белый цвет текста и иконок */
         font-size: 1.2em;
-        text-shadow: 0 1px 4px rgba(0,0,0,0.5); /* Лёгкая тень для читаемости */
+        text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
+    .navbar-nav .nav-link i,
+    .navbar-nav .nav-link svg {
+        margin: 0 auto;
+        display: block;
+    }
+    .offcanvas {
+    background: rgba(34, 34, 34, 0.95); /* Любой нужный вам цвет */
+    color: #fff; /* Цвет текста */
+}
 }
 
 /* Стили футера */

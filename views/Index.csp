@@ -26,9 +26,7 @@
 <nav class="navbar navbar-expand-lg navbar-custom bg-transparent">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">Torgprodhim</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarNav" aria-controls="navbarNav"
-            aria-expanded="false" aria-label="Переключить навигацию">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -44,6 +42,24 @@
     </div>
   </div>
 </nav>
+
+<!-- Offcanvas меню -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Меню</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav align-items-center">
+      <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+      <li class="nav-item"><a class="nav-link" href="/about">О нас</a></li>
+      <li class="nav-item"><a class="nav-link" href="/contacts">Контакты</a></li>
+      <li class="nav-item ms-3"><a class="nav-link" href="mailto:example@email.com"><i class="bi bi-envelope-fill"></i></a></li>
+      <li class="nav-item ms-2"><a class="nav-link" href="tel:+123456789"><i class="bi bi-telephone-fill"></i></a></li>
+      <li class="nav-item ms-1"><a class="nav-link" href="https://t.me/yourusername" target="_blank"><i class="bi bi-telegram"></i></a></li>
+    </ul>
+  </div>
+</div>
 
 <!-- Hero блок с картинкой слева и текстом справа -->
 <section class="hero d-flex">

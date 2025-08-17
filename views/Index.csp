@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<!-- Прелоадер, который показывается перед полной загрузкой страницы -->
+<!-- Прелоадер -->
 <div id="preloader">
   <div class="spinner"></div>
 </div>
@@ -68,7 +68,7 @@
   <div class="hero-left"></div>
   <div class="hero-right d-flex flex-column justify-content-center align-items-start p-5">
     <h1>Добро пожаловать</h1>
-    <p>C++ и Drogon</p>
+    <p></p>
   </div>
 </section>
 
